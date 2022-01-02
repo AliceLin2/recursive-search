@@ -1,5 +1,15 @@
 function recursiveSearch(arr, target) {
   // type your code here
+  if(arr.length===0){
+    return false 
+  }else{
+    if(arr[0]===target){
+        return true 
+      }else{
+        arr.splice(0,1)
+        return recursiveSearch(arr, target)
+      }
+  } 
 }
 
 if (require.main === module) {
@@ -11,6 +21,11 @@ if (require.main === module) {
 
   console.log("Expecting: false");
   console.log("=>", recursiveSearch([3, 2, 1], 4));
+
+  console.log("");
+
+  console.log("Expecting: true");
+  console.log("=>", recursiveSearch([3, 2, ''], ''));
 }
 
 module.exports = recursiveSearch;
